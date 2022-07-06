@@ -16,7 +16,8 @@ class Polygon{
 
 class Triangle extends Polygon{
   get isValid(){
-    if(((this.side[0])+(this.side[1])) > this.side[2]){
+    console.log(this.side[0], this.side[1], this.side[2])
+    if(((this.side[0])+(this.side[1])) > this.side[2] || ((this.side[1])+(this.side[2])) > this.side[0] || ((this.side[2])+(this.side[0])) > this.side[1] ){
       return true;
     } else {
       return false;
@@ -27,10 +28,12 @@ class Triangle extends Polygon{
 
 class Square extends Polygon{
   get isValid(){
-    if(this.side[0]===this.side[1]===this.side[2]===this.side[2]){
-      return false;
-    } else {
+    
+    if(this.side[0]===this.side[1] && this.side[1]===this.side[2] && this.side[2]===this.side[3]){
+
       return true;
+    } else {
+      return false;
     }
   }
 
@@ -38,4 +41,8 @@ class Square extends Polygon{
     return this.side[0]*this.side[0];
   }
 }
+let triangle = new Triangle( [ 5, 5, 5 ] )
+let triangle2 = new Triangle( [ 15, 10, 1 ] )
 
+
+console.log(triangle2.isValid)
